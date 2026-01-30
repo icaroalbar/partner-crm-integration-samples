@@ -1,0 +1,36 @@
+service: partner-crm-opportunity-api
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: dev
+  httpApi:
+    cors: true
+  environment:
+    POWERTOOLS_SERVICE_NAME: partner-crm-opportunity-api
+
+build:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    target: es2022
+    platform: node
+
+functions:
+  createOpportunity:
+    handler: src/handlers/createOpportunity.handler
+    description: Create a new opportunity based on CRM payloads.
+    events:
+      - httpApi:
+          path: /opportunities
+          method: post
+  updateOpportunity:
+    handler: src/handlers/updateOpportunity.handler
+    description: Update an existing opportunity by ID.
+    events:
+      - httpApi:
+          path: /opportunities/{id}
+          method: put
