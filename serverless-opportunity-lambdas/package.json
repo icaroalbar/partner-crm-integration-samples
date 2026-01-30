@@ -1,0 +1,17 @@
+{
+  "name": "serverless-opportunity-lambdas",
+  "version": "0.1.0",
+  "description": "Serverless Framework v4 sample lambdas for creating and editing opportunities.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "deploy": "serverless deploy",
+    "offline": "serverless offline",
+    "lint": "echo 'Add linting as needed'",
+    "test": "echo 'No tests yet'"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.147",
+    "typescript": "^5.5.4"
+  }
+}
